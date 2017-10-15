@@ -7,11 +7,22 @@
 
 
 #include "Object.h"
+using namespace std;
+
 namespace talisman {
     class Animal : public Object {
     private:
         string name;
     public:
+
+        Animal() {
+            name = "empty animal name";
+        }
+
+        Animal(string name) {
+            this->name = name;
+        }
+
         const string &getName() const;
 
         void setName(const string &name);

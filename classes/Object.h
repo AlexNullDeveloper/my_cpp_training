@@ -5,14 +5,12 @@
 #ifndef MY_CPP_TRAINING_OBJECT_H
 #define MY_CPP_TRAINING_OBJECT_H
 
-
 #include <iostream>
 
-using namespace std;
 namespace talisman {
     class Object {
     public:
-        virtual string toString();
+        virtual std::string toString() = 0;
     };
 }
 

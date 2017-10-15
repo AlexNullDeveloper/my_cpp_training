@@ -16,6 +16,17 @@ namespace talisman {
         string name;
 
     public:
+
+        Person() {
+            this->age = 0;
+            this->name = "empty name";
+        }
+
+        Person(int age, string name) {
+            this->age = age;
+            this->name = name;
+        }
+
         int getAge() const;
 
         void setAge(int age);
