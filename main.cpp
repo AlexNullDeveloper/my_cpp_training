@@ -4,6 +4,8 @@
 #include "classes/Person.h"
 #include "classes/Vector.h"
 #include "util/Out.h"
+#include "util/PropertiesReader.h"
+#include "util/Settings.h"
 
 using namespace std;
 using namespace talisman;
@@ -27,6 +29,12 @@ void printArray(int *array) {
 double sqrt_sum(Vector& v);
 
 int main () {
+
+//    PropertiesReader propertiesReader;
+//    propertiesReader.readFile("../resources/application.properties");
+
+    Settings &settings = Settings::Instance();
+
 
     Vector myVector(10);
     for (int i = 0; i < myVector.size(); ++i) {
