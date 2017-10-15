@@ -6,40 +6,41 @@
 #include <ctime>
 using namespace std;
 
-const int THREE = 3;
+namespace talisman {
+    const int THREE = 3;
 
-void getSeconds(unsigned long *par);
+    void getSeconds(unsigned long *par);
 
-void pointerAndArray() {
-    int  var[THREE] = {10, 100, 200};
-    int  *ptr;
+    void pointerAndArray() {
+        int  var[THREE] = {10, 100, 200};
+        int  *ptr;
 
-    // let us have array address in pointer.
-    ptr = var;
+        // let us have array address in pointer.
+        ptr = var;
 
-    for (int i = 0; i < THREE; i++) {
-        cout << "Address of var[" << i << "] = ";
-        cout << ptr << endl;
+        for (int i = 0; i < THREE; i++) {
+            cout << "Address of var[" << i << "] = ";
+            cout << ptr << endl;
 
-        cout << "Value of var[" << i << "] = ";
-        cout << *ptr << endl;
+            cout << "Value of var[" << i << "] = ";
+            cout << *ptr << endl;
 
-        // point to the next location
-        ptr++;
+            // point to the next location
+            ptr++;
+        }
+    }
+
+    void printSeconds() {
+        unsigned long sec;
+        getSeconds( &sec );
+
+        // print the actual value
+        cout << "Number of seconds :" << sec << endl;
+    }
+
+    void getSeconds(unsigned long *par) {
+        // get the current number of seconds
+        *par = time(nullptr);
     }
 }
 
-void printSeconds() {
-    unsigned long sec;
-    getSeconds( &sec );
-
-    // print the actual value
-    cout << "Number of seconds :" << sec << endl;
-}
-
-void getSeconds(unsigned long *par) {
-    // get the current number of seconds
-    *par = time( NULL );
-
-    return;
-}

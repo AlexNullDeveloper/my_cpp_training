@@ -1,16 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <set>
-#include <map>
-#include <ctime>
-#include <cstdlib>
-#include <iomanip>
-#include <algorithm>
-#include <iterator>
 #include "day1stuff/Person.h"
 #include "day1stuff/Animal.h"
 
 using namespace std;
+using namespace talisman;
 
 void allStuff();
 
@@ -30,7 +24,7 @@ void printArray(int *array) {
 
 int main () {
 
-    string chooser = "z";
+    string chooser = "p";
 
     Object object;
     if (chooser == "p") {

@@ -7,17 +7,19 @@
 
 
 #include "Object.h"
+namespace talisman {
+    class Animal : public Object {
+    private:
+        string name;
+    public:
+        const string &getName() const;
 
-class Animal : public Object {
-private:
-    string name;
-public:
-    const string &getName() const;
+        void setName(const string &name);
 
-    void setName(const string &name);
+        string toString() override;
+    };
+}
 
-    string toString() override;
-};
 
 
 #endif //MY_CPP_TRAINING_ANIMAL_H

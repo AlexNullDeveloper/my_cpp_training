@@ -3,6 +3,9 @@
 //
 
 #include "Person.h"
+using namespace talisman;
+
+
 string Person::toString() {
     return "Person[age=" + to_string(getAge()) + ", name=" + getName() + "]\n";
 }

@@ -9,28 +9,30 @@
 #include "Object.h"
 
 using namespace std;
+namespace talisman {
+    class Person : public Object {
+    private:
+        int age;
+        string name;
 
-class Person : public Object {
-private:
-    int age;
-    string name;
+    public:
+        int getAge() const;
 
-public:
-    int getAge() const;
+        void setAge(int age);
 
-    void setAge(int age);
+        const string &getName() const;
 
-    const string &getName() const;
+        void setName(const string &name);
 
-    void setName(const string &name);
+        void grow();
 
-    void grow();
+        void print();
 
-    void print();
+        string toString() override;
 
-    string toString() override;
+    };
+}
 
-};
 
 
 #endif //MY_CPP_TRAINING_PERSON_H

@@ -3,6 +3,7 @@
 //
 
 #include "Animal.h"
+using namespace talisman;
 
 const string &Animal::getName() const {
     return name;

@@ -3,5 +3,6 @@
 //
 
 #include "Object.h"
+using namespace talisman;
 
 string Object::toString() { return ""; }

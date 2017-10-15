@@ -9,11 +9,13 @@
 #include <iostream>
 
 using namespace std;
+namespace talisman {
+    class Object {
+    public:
+        virtual string toString();
+    };
+}
 
-class Object {
-public:
-    virtual string toString();
-};
 
 
 #endif //MY_CPP_TRAINING_OBJECT_H
