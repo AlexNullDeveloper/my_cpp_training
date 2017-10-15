@@ -1,84 +1,34 @@
 #include <iostream>
-#include <vector>
-#include "classes/Animal.h"
-#include "classes/Person.h"
-#include "classes/Vector.h"
-#include "util/Out.h"
-#include "util/PropertiesReader.h"
-#include "util/Settings.h"
+#include <mysql.h>
+MYSQL *connection, mysql;
+MYSQL_RES *result;
+MYSQL_ROW row;
+int query_state;
 
-using namespace std;
-using namespace talisman;
-
-void allStuff();
-
-void pointerAndArray();
-
-void printSeconds();
-
-void printVectorAscOrder(vector<int> &vectorOfIntegers);
-
-void printVectorDescOrder(vector<int> &vectorOfIntegers);
-
-void printArray(int *array) {
-    for (int i = 0; i < 5; ++i) {
-        cout << "i " << i << " value " << *(array + i) <<endl;
-    }
-}
-
-double sqrt_sum(Vector& v);
-
-int main () {
-
-//    PropertiesReader propertiesReader;
-//    propertiesReader.readFile("../resources/application.properties");
-
-    Settings &settings = Settings::Instance();
-
-
-    Vector myVector(10);
-    for (int i = 0; i < myVector.size(); ++i) {
-        myVector[i] = i;
+int main() {
+    mysql_init(&mysql);
+    //connection = mysql_real_connect(&mysql,"host","user",
+    //                   "password","database",port,"unix_socket",clientflag);
+    connection = mysql_real_connect(&mysql,"localhost",
+                                    "root","qwer","cpp_data",3306,0,0);
+    if (connection == NULL) {
+        std::cout << mysql_error(&amp;mysql) << std::endl;
+        return 1;
     }
 
-    cout << "sqrt_sum(myVector)=" << sqrt_sum(myVector) << endl;
-
-    try {
-        myVector[myVector.size()] = 7;
-    } catch (out_of_range e) {
-        Out::println("println out_of_range");
-    } catch (bad_alloc badAlloc) {
-        cout << badAlloc.what() << endl;
+    query_state = mysql_query(connection, "select user_count()");
+    if (query_state !=0) {
+        std::cout << mysql_error(connection) << std::endl;
+        return 1;
     }
 
-
-    string chooser = "p";
-
-    Object* object;
-    if (chooser == "a") {
-
-        object = new Person(10, "liza");
-
-        cout << "person" << endl;
-//        Person person;
-//        person.setAge(10);
-//        person.setName("liza");
-//
-//        person.print();
-//
-//        person.grow();
-//
-//        person.print();
-    } else {
-        cout << "animal" << endl;
-        object = new Animal("balu");
+    result = mysql_store_result(connection);
+    while (( row = mysql_fetch_row(result)) != NULL) {
+        std::cout << "Number of active users : " << row[0] << std::endl;
     }
 
-    cout << "person.toString() " << object->toString();
+    mysql_free_result(result);
+    mysql_close(connection);
 
     return 0;
 }
-
-
-
-

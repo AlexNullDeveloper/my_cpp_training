@@ -59,11 +59,6 @@ namespace talisman {
 
     }
 
-    int * populateArray() {
-        int array[] = {1,2,3,4,5};
-        return array;
-    }
-
 
     void printMyArray(double array[], int size) {
 

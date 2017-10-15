@@ -11,23 +11,28 @@
 class Settings {
 
 public:
-    static Settings& Instance()
+    static Settings& getInstance()
     {
         // согласно стандарту, этот код ленивый и потокобезопасный
         static Settings s;
         return s;
     }
 
+    void readFile(string fileName);
+
+    string get(string key);
+
 private:
     Settings() {
-        PropertiesReader propertiesReader;
-        propertiesReader.readFile("../resources/application.properties");
+        readFile("../resources/application.properties");
     }  // конструктор недоступен
     ~Settings() {  } // и деструктор
 
     // необходимо также запретить копирование
     Settings(Settings const&); // реализация не нужна
     Settings& operator= (Settings const&);  // и тут
+
+    map<string, string> properties;
 
 };
 
