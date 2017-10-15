@@ -3,3 +3,15 @@
 //
 
 #include "Animal.h"
+
+const string &Animal::getName() const {
+    return name;
+}
+
+void Animal::setName(const string &name) {
+    Animal::name = name;
+}
+
+string Animal::toString() {
+    return "Animal[name=" + this->name + "]";
+}

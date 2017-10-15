@@ -12,7 +12,7 @@ using namespace std;
 
 class Object {
 public:
-    virtual string toString() { return ""; }
+    virtual string toString();
 };
 
 

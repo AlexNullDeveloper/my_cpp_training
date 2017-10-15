@@ -16,34 +16,19 @@ private:
     string name;
 
 public:
-    int getAge() const {
-        return age;
-    }
+    int getAge() const;
 
-    void setAge(int age) {
-        Person::age = age;
-    }
+    void setAge(int age);
 
-    const string &getName() const {
-        return name;
-    }
+    const string &getName() const;
 
-    void setName(const string &name) {
-        Person::name = name;
-    }
+    void setName(const string &name);
 
-    void grow() {
-        Person::age = getAge() + 1;
-    }
+    void grow();
 
-    void print() {
-        cout << "person.getAge() " << getAge() << " person.getName() " << getName() << endl;
-    }
+    void print();
 
-    string toString() {
-        return "Person[age=" + to_string(getAge()) + ", name=" + getName() + "]\n";
-    }
-
+    string toString() override;
 
 };
 

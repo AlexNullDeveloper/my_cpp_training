@@ -12,18 +12,11 @@ class Animal : public Object {
 private:
     string name;
 public:
-    const string &getName() const {
-        return name;
-    }
+    const string &getName() const;
 
-    void setName(const string &name) {
-        Animal::name = name;
-    }
+    void setName(const string &name);
 
-public:
-    string toString() {
-        return "Animal[name=" + this->name + "]";
-    }
+    string toString() override;
 };
 
 

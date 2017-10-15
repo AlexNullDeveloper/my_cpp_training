@@ -3,3 +3,5 @@
 //
 
 #include "Object.h"
+
+string Object::toString() { return ""; }
